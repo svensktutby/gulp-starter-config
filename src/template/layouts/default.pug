@@ -1,0 +1,52 @@
+include ../../blocks/modules.pug
+block variables
+
+doctype html
+html(class='page no-js', lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title #{title}
+    if $.isProd
+      meta(name='msapplication-TileColor', content='#ffffff')
+      link(rel='shortcut icon', href='./img/favicon/favicon.ico')
+      link(rel='apple-touch-icon', sizes='180x180', href='./img/favicon/apple-touch-icon-180x180.png')
+      link(rel='icon', type='image/png', sizes='32x32', href='./img/favicon/favicon-32x32.png')
+      link(rel='icon', type='image/png', sizes='16x16', href='./img/favicon/favicon-16x16.png')
+      link(rel='manifest', href='./img/favicon/manifest.json')
+
+    block meta
+
+    block head
+      if $.isProd
+        link(rel='stylesheet', href='./css/style.min.css')
+      else
+        link(rel='stylesheet', href='./css/style.css')
+      script document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+  body
+    noscript У вас отключен JavaScript. Интерактивность сайта будет недоступна.
+    block svg-sprite
+
+    .page__inner
+      .page__content
+        +page-header()
+          +logo('/')
+            img(src='./img/demo-logo.svg', alt='Logo', width='64', height='15')
+          block nav
+
+        block content
+          p содержимое
+
+      .page__footer-wrapper
+        +page-footer()
+          block footer
+            p «Подвал»
+
+    block page-bottom
+      if $.isProd
+        script(src=`./js/${page}.min.js`)
+      else
+        script(src=`./js/${page}.js`)
+
