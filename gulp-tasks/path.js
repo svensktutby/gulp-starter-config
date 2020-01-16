@@ -2,24 +2,27 @@
 
 module.exports = {
   tasks: [
-    './gulp/pug.js',
-    './gulp/styles.js',
-    './gulp/scripts.js',
-    './gulp/clean.js',
-    './gulp/fonts.js',
-    './gulp/images.js',
-    './gulp/favicon.js',
-    './gulp/favicon.manifest.js',
-    './gulp/clear.js',
-    './gulp/sprite.svg.js',
-    './gulp/sprite.png.js',
-    './gulp/eslint.js',
-    './gulp/stylelint.js',
-    './gulp/path.rebuild.js',
-    './gulp/deploy.js',
-    './gulp/serve.js',
-    './gulp/watch.js'
+    './gulp-tasks/pug.js',
+    './gulp-tasks/styles.js',
+    './gulp-tasks/scripts.js',
+    './gulp-tasks/clean.js',
+    './gulp-tasks/fonts.js',
+    './gulp-tasks/images.js',
+    './gulp-tasks/favicon.js',
+    './gulp-tasks/favicon.manifest.js',
+    './gulp-tasks/clear.js',
+    './gulp-tasks/sprite.svg.js',
+    './gulp-tasks/sprite.png.js',
+    './gulp-tasks/eslint.js',
+    './gulp-tasks/stylelint.js',
+    './gulp-tasks/path.rebuild.js',
+    './gulp-tasks/deploy.js',
+    './gulp-tasks/serve.js',
+    './gulp-tasks/watch.js'
   ],
+  message: {
+    error: './message.error.js'
+  },
   files: {
     src: './src/**/*.*',
     build: './build/**/*.*'
@@ -31,8 +34,7 @@ module.exports = {
   pug: {
     src: [
       './src/template/**/*.pug',
-      '!./src/template/layouts/**/*.pug',
-      '!./src/template/pages/**/*.pug'
+      '!./src/template/layouts/**/*.pug'
     ],
     build: './build/',
     watch: [

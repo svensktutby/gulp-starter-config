@@ -1,11 +1,12 @@
 'use strict';
 
 const webpackStream = require('webpack-stream'),
-      webpack = webpackStream.webpack;
+      webpack = webpackStream.webpack,
+      isProd = process.env.NODE_ENV == 'production';
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
-  devtool: $.isProd ? 'none' : 'eval-sourcemap',
+  devtool: isProd ? 'none' : 'eval-sourcemap',
   output: {
     publicPath: '/js/',
     filename: '[name].js'

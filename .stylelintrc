@@ -318,8 +318,8 @@
     # Personal properties
     "declaration-empty-line-before": null,
     "string-quotes": "double",
-    "max-nesting-depth": [2, {
-      "message": "Expected nesting depth to be no more than 2",
+    "max-nesting-depth": [3, {
+      "message": "Expected nesting depth to be no more than 3",
       "severity": "warning",
       "ignore": ["blockless-at-rules"]
     }],

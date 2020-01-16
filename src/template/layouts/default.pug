@@ -1,5 +1,6 @@
 include ../../blocks/modules.pug
 block variables
+  - var isProd = process.env.NODE_ENV == 'production';
 
 doctype html
 html(class='page no-js', lang='ru')
@@ -8,7 +9,7 @@ html(class='page no-js', lang='ru')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     title #{title}
-    if $.isProd
+    if isProd
       meta(name='msapplication-TileColor', content='#ffffff')
       link(rel='shortcut icon', href='./img/favicon/favicon.ico')
       link(rel='apple-touch-icon', sizes='180x180', href='./img/favicon/apple-touch-icon-180x180.png')
@@ -19,7 +20,7 @@ html(class='page no-js', lang='ru')
     block meta
 
     block head
-      if $.isProd
+      if isProd
         link(rel='stylesheet', href='./css/style.min.css')
       else
         link(rel='stylesheet', href='./css/style.css')
@@ -45,7 +46,7 @@ html(class='page no-js', lang='ru')
             p «Подвал»
 
     block page-bottom
-      if $.isProd
+      if isProd
         script(src=`./js/${page}.min.js`)
       else
         script(src=`./js/${page}.js`)

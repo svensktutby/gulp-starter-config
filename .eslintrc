@@ -20,8 +20,9 @@
     "no-console": "warn",
     "max-len": ["error", 120, 2, { "ignoreUrls": true }],
     "no-plusplus": "off",
-    "eol-last": "off",
-    "no-unused-vars": "warn"
+    "eol-last": ["warn", "always"],
+    "no-unused-vars": "warn",
+    "space-before-function-paren": ["warn", {"anonymous": "always", "named": "never"}]
     //"comma-dangle": ["error", "always-multiline"]
   }
 }

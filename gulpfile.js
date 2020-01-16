@@ -1,73 +1,54 @@
 'use strict';
 
-global.$ = {
-  gulp: require('gulp'),
-  gp: require('gulp-load-plugins')(),
-  del: require('del'),
-  buffer: require('vinyl-buffer'),
-  named: require('vinyl-named'),
-  merge: require('merge-stream'),
-  through2: require('through2'),
-  fs: require('fs'),
-  browserSync: require('browser-sync').create(),
-  pngquant: require('imagemin-pngquant'),
-  mozjpeg: require('imagemin-mozjpeg'),
-  path: require('./gulp/path.js'),
-  isProd: process.env.NODE_ENV == 'production'
-};
+const gulp = require('gulp');
+const { task, series, parallel } = gulp;
+const gp = require('gulp-load-plugins')();
+const path = require('./gulp-tasks/path.js');
 
-$.path.tasks.forEach(function (taskPath){
-  require(taskPath)();
-});
+/**
+   * Converting a string into camel case
+   * @param {string} str
+   * @return {string}
+   */
+const camelize = str => str
+  .replace(/\.(\w)/g, (match, chr) => chr.toUpperCase());
 
-/* Notify error message
- ******************************/
-$.onError = function (error) {
-  $.gp.notify.onError({
-    title: 'Error in ' + error.plugin,
-    message: [
-      '',
-      '----------ERROR MESSAGE START----------',
-      error.message,
-      '----------ERROR MESSAGE END----------'
-    ].join('\n'),
-    sound: 'Hero'
-  })(error);
-  this.emit('end');
-};
+/**
+   * Getting a task name from the path
+   * @param {string} taskPath
+   * @return {string}
+   */
+const getTaskName = taskPath => taskPath
+  .slice(taskPath.lastIndexOf('/') + 1, taskPath.lastIndexOf('.'));
 
-/* Build developing
-******************************/
-$.gulp.task('build:dev', $.gulp.series(
+/**
+ * Creating all Gulp tasks from paths ('gulp --tasks' in CLI)
+ * @param {Array} allTasksPath
+ * @param {Array} options
+ */
+(function createGulpTasks(allTasksPath, options = []) {
+  allTasksPath.tasks.forEach(taskPath => {
+    gulp.task(camelize(getTaskName(taskPath)), function (cb) {
+      let task = () => require(taskPath)(options);
+      return task(cb);
+    });
+  });
+})(path, [ gulp, gp, path ]);
+
+task('build',
+  series(
   'clean',
-  $.gulp.parallel(
+  parallel(
     'fonts',
     'images',
-    'sprite:svg',
-    'sprite:png'
-  ),
-  $.gulp.parallel(
-    'pug',
-    'styles',
-    'scripts'
-  )
-));
-
-/* Build production
-******************************/
-$.gulp.task('build:prod', $.gulp.series(
-  'clean',
-  $.gulp.parallel(
-    'fonts',
-    'images',
-    'sprite:svg',
-    'sprite:png',
-    $.gulp.series(
+    'spriteSvg',
+    'spritePng',
+    series(
       'favicon',
-      'favicon:manifest'
+      'faviconManifest'
     )
   ),
-  $.gulp.parallel(
+  parallel(
     'pug',
     'styles',
     'scripts',
@@ -76,11 +57,10 @@ $.gulp.task('build:prod', $.gulp.series(
   )
 ));
 
-/* Default
-******************************/
-$.gulp.task('default', $.gulp.series(
-  'build:dev',
-  $.gulp.parallel(
+task('default',
+  series(
+  'build',
+  parallel(
     'watch',
     'serve'
   )
