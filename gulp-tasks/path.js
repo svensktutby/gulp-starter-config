@@ -50,11 +50,10 @@ module.exports = {
       './src/blocks/**/*.scss'
     ],
     lint: [
-      './src/style/**/*.scss',
-      './src/blocks/**/*.scss',
-      '!./src/style/vendor/**/*.scss',
+      './src/**/*.scss',
+      '!./src/style/base/**/*.scss',
       '!./src/style/helpers/**/*.scss',
-      '!./src/style/base/**/*.scss'
+      '!./src/style/vendor/**/*.scss'
     ]
   },
   scripts: {
@@ -64,6 +63,10 @@ module.exports = {
     ],
     build: './build/js/',
     watch: [
+      './src/js/**/*.js',
+      './src/blocks/**/*.js'
+    ],
+    lint: [
       './src/js/**/*.js',
       './src/blocks/**/*.js'
     ]

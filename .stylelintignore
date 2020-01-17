@@ -1,2 +1,3 @@
 src/style/base/**/*.scss
+src/style/helpers/**/*.scss
 src/style/vendor/**/*.scss

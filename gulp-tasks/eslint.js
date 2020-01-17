@@ -21,7 +21,7 @@ module.exports = function ([gulp, gp, path]) {
   }
 
   return gulp
-        .src(path.scripts.watch)
+        .src(path.scripts.lint)
         .pipe(gp.plumber({ errorHandler: onError }))
         .pipe(gp.cached('eslint-cache'))
         // only uncached and changed files past this point
