@@ -18,5 +18,4 @@ ready(function (){
     }
   }
 
-})
-;
+});
