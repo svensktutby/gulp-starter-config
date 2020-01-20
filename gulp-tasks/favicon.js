@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function ([ gulp, gp, path ]) {
-  
+module.exports = function ({ gulp, gp, path }) {
+
   const pngquant = require('imagemin-pngquant');
   const faviconConfig = require('.' + path.favicon.data);
   const isProd = process.env.NODE_ENV == 'production';

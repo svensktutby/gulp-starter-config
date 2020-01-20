@@ -1,7 +1,7 @@
 'use strict';
 
 // eslint-disable-next-line no-unused-vars
-module.exports = function ([ gulp, gp, path, browserSync ]) {
+module.exports = function ({ gulp, path, browserSync }) {
 
   const { watch, series, parallel } = gulp;
 

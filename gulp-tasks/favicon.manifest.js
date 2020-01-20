@@ -1,8 +1,7 @@
 'use strict';
 
-// eslint-disable-next-line no-unused-vars
-module.exports = function ([ gulp, gp, path ]) {
-  
+module.exports = function ({ path }) {
+
   const fs = require('fs');
 
   return new Promise((resolve) => {

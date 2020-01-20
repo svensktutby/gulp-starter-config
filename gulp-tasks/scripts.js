@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ([ gulp, gp, path ]) {
+module.exports = function ({ gulp, gp, path }) {
 
   const webpackStream = require('webpack-stream');
   const webpackConfig = require('../webpack.config.js');

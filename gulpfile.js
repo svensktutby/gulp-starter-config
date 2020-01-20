@@ -1,10 +1,6 @@
 'use strict';
 
-const gulp = require('gulp');
-const { task, series, parallel } = gulp;
-const gp = require('gulp-load-plugins')();
-const path = require('./gulp-tasks/path.js');
-const browserSync = require('browser-sync').create();
+const { task, series, parallel } = require('gulp');
 
 /**
    * Converting a string into camel case
@@ -24,17 +20,21 @@ const getTaskName = taskPath => taskPath
 
 /**
  * Creating all Gulp tasks from paths ('gulp --tasks' in CLI)
- * @param {Array} allTasksPath
- * @param {Array} options
+ * @param {Object} options
  */
-(function createGulpTasks(allTasksPath, options = []) {
-  allTasksPath.tasks.forEach(taskPath => {
-    gulp.task(camelize(getTaskName(taskPath)), function (cb) {
+(function createGulpTasks(options) {
+  options.path.tasks.forEach(taskPath => {
+    options.gulp.task(camelize(getTaskName(taskPath)), function (cb) {
       let task = () => require(taskPath)(options);
       return task(cb);
     });
   });
-})(path, [ gulp, gp, path, browserSync ]);
+})({
+  gulp: require('gulp'),
+  gp: require('gulp-load-plugins')(),
+  path: require('./gulp-tasks/path.js'),
+  browserSync: require('browser-sync').create()
+});
 
 task('build',
   series(

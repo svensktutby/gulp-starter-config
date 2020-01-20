@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function ([gulp, gp, path]) {
-  
+module.exports = function ({ gulp, gp, path }) {
+
   const through2 = require('through2');
   const onError = require(path.message.error);
 

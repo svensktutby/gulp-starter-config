@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ([ gulp, gp, path ]) {
+module.exports = function ({ gulp, gp, path }) {
 
   const buffer = require('vinyl-buffer');
   const merge = require('merge-stream');
