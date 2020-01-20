@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const { task, series, parallel } = gulp;
 const gp = require('gulp-load-plugins')();
 const path = require('./gulp-tasks/path.js');
+const browserSync = require('browser-sync').create();
 
 /**
    * Converting a string into camel case
@@ -33,7 +34,7 @@ const getTaskName = taskPath => taskPath
       return task(cb);
     });
   });
-})(path, [ gulp, gp, path ]);
+})(path, [ gulp, gp, path, browserSync ]);
 
 task('build',
   series(

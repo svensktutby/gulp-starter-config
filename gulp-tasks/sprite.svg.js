@@ -15,7 +15,7 @@ module.exports = function ([ gulp, gp, path ]) {
                 plugins: [
                   { removeViewBox: false },
                   { cleanupIDs: true },
-                  { removeAttrs: { attrs: ['version'] } },
+                  { removeAttrs: { attrs: ['version', 'fill', 'stroke', 'stroke-width'] } },
                   { removeUselessStrokeAndFill: false },
                   { convertPathData: false }
                 ]
