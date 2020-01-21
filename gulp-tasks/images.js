@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ({ gulp, gp, path }) {
+module.exports = function ({ gulp, gp, path, browserSync }) {
 
   const pngquant = require('imagemin-pngquant');
   const mozjpeg = require('imagemin-mozjpeg');
@@ -39,5 +39,6 @@ module.exports = function ({ gulp, gp, path }) {
             verbose: true
           }))))
         .pipe(gp.debug({ title: 'images:', showFiles: true }))
-        .pipe(gulp.dest(path.images.build));
+        .pipe(gulp.dest(path.images.build))
+        .on('end', browserSync.reload);
 };

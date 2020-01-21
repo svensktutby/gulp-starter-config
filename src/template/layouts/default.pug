@@ -8,7 +8,6 @@ html(class='page no-js', lang='ru')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
-    title #{title}
     if isProd
       meta(name='msapplication-TileColor', content='#ffffff')
       link(rel='shortcut icon', href='./img/favicon/favicon.ico')
@@ -18,13 +17,15 @@ html(class='page no-js', lang='ru')
       link(rel='manifest', href='./img/favicon/manifest.json')
 
     block meta
+      title Home
 
     block head
       if isProd
         link(rel='stylesheet', href='./css/style.min.css')
       else
         link(rel='stylesheet', href='./css/style.css')
-      script document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      script
+        include ../../js/utils/head-script.js
 
   body
     noscript У вас отключен JavaScript. Интерактивность сайта будет недоступна.
@@ -50,4 +51,3 @@ html(class='page no-js', lang='ru')
         script(src=`./js/${page}.min.js`)
       else
         script(src=`./js/${page}.js`)
-

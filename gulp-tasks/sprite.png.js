@@ -11,13 +11,10 @@ module.exports = function ({ gulp, gp, path }) {
       .pipe(gp.debug({ title: 'sprite:png:', showFiles: true }))
       .pipe(gp.spritesmith({
         imgName: 'sprite-png.png',
-        cssName: '_sprite-png.scss',
-        cssFormat: 'scss',
-        padding: 10,
+        cssName: 'sprite-png.scss',
+        cssFormat: 'css',
+        padding: 50,
         algorithm: 'top-down',
-        //cssVarMap(sprite) {
-          // sprite.name = 'icon-' + sprite.name;
-        //},
         imgPath: '../img/sprite-png.png'
       }));
 

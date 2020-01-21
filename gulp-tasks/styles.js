@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ({ gulp, gp, path }) {
+module.exports = function ({ gulp, gp, path, browserSync }) {
 
   const onError = require(path.message.error);
   const isProd = process.env.NODE_ENV == 'production';
@@ -8,6 +8,7 @@ module.exports = function ({ gulp, gp, path }) {
   return gulp
         .src(path.styles.src, { sourcemaps: true })
         .pipe(gp.plumber({ errorHandler: onError }))
+        .pipe(gp.sassGlob())
         .pipe(gp.sass({ includePaths: [__dirname+'/', 'node_modules'] }))
         .pipe(gp.groupCssMediaQueries())
         .pipe(gp.autoprefixer({
@@ -23,5 +24,6 @@ module.exports = function ({ gulp, gp, path }) {
         .pipe(gp.if(isProd, gp.rename({ suffix: '.min' })))
         .pipe(gp.if(!isProd,
           gulp.dest(path.styles.build, { sourcemaps: true }),
-          gulp.dest(path.styles.build, { sourcemaps: false })));
+          gulp.dest(path.styles.build, { sourcemaps: false })))
+        .pipe(browserSync.stream());
 };

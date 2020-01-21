@@ -19,11 +19,7 @@
 
 /*! Modules
 ******************************/
-@import "../blocks/btn/btn";
-@import "../blocks/page-header/page-header";
-@import "../blocks/burger/burger";
-@import "../blocks/logo/logo";
-@import "../blocks/page-footer/page-footer";
+@import "../blocks/**/*.scss";// stylelint-disable-line  scss/at-import-partial-extension-blacklist
 
 /*! Print
 ******************************/

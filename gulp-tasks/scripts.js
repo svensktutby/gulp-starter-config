@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function ({ gulp, gp, path }) {
+module.exports = function ({ gulp, gp, path, browserSync }) {
 
   const webpackStream = require('webpack-stream');
   const webpackConfig = require('../webpack.config.js');
@@ -14,5 +14,6 @@ module.exports = function ({ gulp, gp, path }) {
         .pipe(named())
         .pipe(webpackStream(webpackConfig))
         .pipe(gp.if(isProd, gp.rename({ suffix: '.min' })))
-        .pipe(gulp.dest(path.scripts.build));
+        .pipe(gulp.dest(path.scripts.build))
+        .on('end', browserSync.reload);
 };
