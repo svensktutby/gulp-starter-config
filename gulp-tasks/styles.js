@@ -10,7 +10,7 @@ module.exports = function ({ gulp, gp, path, browserSync }) {
         .pipe(gp.plumber({ errorHandler: onError }))
         .pipe(gp.sassGlob())
         .pipe(gp.sass({ includePaths: [__dirname+'/', 'node_modules'] }))
-        .pipe(gp.groupCssMediaQueries())
+        .pipe(gp.if(isProd, gp.groupCssMediaQueries()))
         .pipe(gp.autoprefixer({
             overrideBrowserslist: [
               'last 3 version',
