@@ -29,7 +29,7 @@ module.exports = function ({ gulp, gp, path }) {
       .pipe(gulp.dest(path.spritePng.build));
 
     let cssStream = spriteData.css
-      .pipe(gulp.dest('./tmp'));
+      .pipe(gulp.dest(path.dir.tmp));
 
     return merge(imgStream, cssStream);
 };

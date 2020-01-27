@@ -23,15 +23,11 @@ module.exports = {
   message: {
     error: './message.error.js'
   },
-  files: {
-    src: './src/**/*.*',
-    build: './build/**/*.*'
-  },
-  clean: {
-    folders: [
-      './build/**',
-      './tmp/**'
-    ]
+  dir: {
+    'src': './src/',
+    'build': './build/',
+    'tmp': './tmp/',
+    'blocks': './src/blocks/'
   },
   pug: {
     src: [
