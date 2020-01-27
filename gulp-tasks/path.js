@@ -28,8 +28,10 @@ module.exports = {
     build: './build/**/*.*'
   },
   clean: {
-    build: './build/**',
-    tmp: './tmp/**'
+    folders: [
+      './build/**',
+      './tmp/**'
+    ]
   },
   pug: {
     src: [

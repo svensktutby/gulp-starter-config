@@ -1,4 +1,6 @@
-include ../../blocks/modules.pug
+include ../../blocks/page-footer/page-footer.pug
+include ../../blocks/page-header/page-header.pug
+
 block variables
   - var isProd = process.env.NODE_ENV == 'production';
 
@@ -34,9 +36,8 @@ html(class='page no-js', lang='ru')
     .page__inner
       .page__content
         +page-header()
-          +logo('/')
-            img(src='./img/demo-logo.svg', alt='Logo', width='64', height='15')
-          block nav
+          block header
+            p «Шапка»
 
         block content
           p содержимое

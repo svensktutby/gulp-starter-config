@@ -1,5 +1,10 @@
 extends layouts/default.pug
 
+include ../blocks/btn/btn.pug
+include ../blocks/burger/burger.pug
+include ../blocks/logo/logo.pug
+include ../blocks/main-nav/main-nav.pug
+
 append variables
   - var page = 'index';
 
@@ -13,7 +18,9 @@ block svg-sprite
   .sprite(style='display: none;')
     include ../../tmp/sprite-svg.svg
 
-block nav
+block header
+  +logo('/')
+    img(src='./img/demo-logo.svg', alt='Logo', width='64', height='15')
 
 block content
   h1 Заголовок

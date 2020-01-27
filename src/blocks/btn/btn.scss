@@ -3,6 +3,8 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .btn {
+  $block-name: &; // #{$block-name}__element
+  
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;

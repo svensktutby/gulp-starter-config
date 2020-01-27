@@ -299,8 +299,6 @@
       {
         # "emptyLineBefore": "always",
         "properties": [
-          "transform",
-          "transform-*",
           "backface-visibility",
           "perspective",
           "perspective-origin",
