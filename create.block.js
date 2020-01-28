@@ -3,7 +3,7 @@
 
 // Генератор файлов блока
 
-// Использование: node block.create.js [имя блока] [доп. расширения через пробел]
+// Использование: node create.block.js [имя блока] [доп. расширения через пробел]
 
 const fs = require('fs');
 const projectConfig = require('./gulp-tasks/path.js');
@@ -12,7 +12,7 @@ const dir = projectConfig.dir;
 const mkdirp = require('mkdirp');
 
 const blockName = process.argv[2];
-const defaultExtensions = ['scss', 'img']; // расширения по умолчанию
+const defaultExtensions = ['scss', 'img', 'bg-img']; // расширения по умолчанию
 const extensions = uniqueArray(defaultExtensions.concat(process.argv.slice(3)));
 
 // Если есть имя блока

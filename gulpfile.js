@@ -40,21 +40,21 @@ task('build',
   series(
   'clean',
   parallel(
+    'spriteSvg',
+    'spritePng'
+  ),
+  parallel(
     'fonts',
     'images',
-    'spriteSvg',
-    'spritePng',
+    'styles',
+    'scripts',
+    'stylelint',
+    'eslint',
     series(
       'favicon',
       'faviconManifest'
-    )
-  ),
-  parallel(
-    'pug',
-    'styles',
-    'scripts',
-    'eslint',
-    'stylelint'
+    ),
+    'pug'
   )
 ));
 

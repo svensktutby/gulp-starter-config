@@ -10,6 +10,7 @@ module.exports = function ({ gulp, gp, path, browserSync }) {
   return gulp
         .src(path.images.src)
         .pipe(gp.plumber({ errorHandler: onError }))
+        .pipe(gp.rename({dirname: ''})) // to removing a folder structure
         .pipe(gp.changed(path.images.build))
         .pipe(gp.if(isProd, gp.cache(gp.imagemin(
           [

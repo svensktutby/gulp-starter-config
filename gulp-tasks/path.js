@@ -71,26 +71,28 @@ module.exports = {
   },
   images: {
     src: [
+      './src/blocks/**/*.{jpg,jpeg,png,gif,svg}',
       './src/img/**/*.{jpg,jpeg,png,gif,svg}',
-      '!./src/img/sprite-svg/**/*',
+      '!./src/blocks/sprite-svg/svg/*.svg',
+      '!./src/blocks/sprite-svg/img/*.svg',
       '!./src/img/sprite-png/**/*',
       '!./src/img/favicon/**/*'
     ],
     build: './build/img/',
     watch: [
       './src/img/**/*.{jpg,jpeg,png,gif,svg}',
-      '!./src/img/sprite-svg/**/*',
+      '!./src/blocks/sprite-svg/svg/*.svg',
       '!./src/img/sprite-png/**/*',
       '!./src/img/favicon/**/*'
     ],
   },
   spriteSvg: {
     src: [
-      './src/img/sprite-svg/*.svg'
+      './src/blocks/sprite-svg/svg/*.svg'
     ],
-    build: './tmp',
+    build: './src/blocks/sprite-svg/img/',
     watch: [
-      './src/img/sprite-svg/*.svg'
+      './src/blocks/sprite-svg/svg/*.svg'
     ]
   },
   spritePng: {

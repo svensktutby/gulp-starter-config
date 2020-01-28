@@ -23,6 +23,10 @@ module.exports = function ({ gulp, gp, path, browserSync }) {
             ])
           )
         )
-        .pipe(gp.svgstore({ inlineSvg: true }))
+        .pipe(gp.svgstore({
+          inlineSvg: true
+          /* need to turn off if it will be used as an external sprite
+          because the imagemin.svgo in the images task creates an empty svg file */
+        }))
         .pipe(gulp.dest(path.spriteSvg.build));
 };
