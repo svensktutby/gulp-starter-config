@@ -9,6 +9,10 @@ Thumbs.db
 *.sublime*
 build/
 tmp/
+src/blocks/sprite-svg/img/sprite.svg
+src/blocks/sprite-png/sprite-png.scss
+src/blocks/sprite-png/img/sprite-*.png
+src/blocks/favicon/icons/
 
 # NodeJS
 node_modules/

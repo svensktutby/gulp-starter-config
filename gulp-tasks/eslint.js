@@ -30,5 +30,5 @@ module.exports = function ({ gulp, gp, path }) {
         .pipe(gp.eslint.failAfterError())
         // if a file has errors/warnings ("linty") uncache it
         .pipe(gp.if(isLinty, uncache('eslint-cache')))
-        .pipe(gp.debug({ title: 'eslint:lint:', showFiles: true }));
+        .pipe(gp.debug({ title: 'eslint:lint:', showFiles: false }));
 };

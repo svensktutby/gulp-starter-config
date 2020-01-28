@@ -36,33 +36,17 @@ const getTaskName = taskPath => taskPath
   browserSync: require('browser-sync').create()
 });
 
-task('build',
-  series(
-  'clean',
-  parallel(
-    'spriteSvg',
-    'spritePng'
-  ),
-  parallel(
-    'fonts',
-    'images',
-    'styles',
-    'scripts',
-    'stylelint',
-    'eslint',
-    series(
-      'favicon',
-      'faviconManifest'
-    ),
-    'pug'
-  )
-));
-
-task('default',
-  series(
+task(
   'build',
-  parallel(
-    'watch',
-    'serve'
+  series(
+    'clean',
+    parallel('spriteSvg', 'spritePng', series('favicon', 'faviconManifest')),
+    parallel('fonts', 'images', 'styles', 'scripts', 'stylelint', 'eslint', 'pug')
   )
-));
+);
+
+task(
+  'default',
+  series(
+    'build',
+    parallel('watch', 'serve')));

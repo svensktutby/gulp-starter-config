@@ -4,9 +4,7 @@ module.exports = function ({ gulp, gp, path }) {
 
   const buffer = require('vinyl-buffer');
   const merge = require('merge-stream');
-  const pngquant = require('imagemin-pngquant');
   const del = require('del');
-  const isProd = process.env.NODE_ENV == 'production';
   let fileName = 'sprite-' + Math.random().toString().replace(/[^0-9]/g, '') + '.png';
   del(`${path.spritePng.build}/img/*.png`);
 
@@ -23,12 +21,6 @@ module.exports = function ({ gulp, gp, path }) {
 
     let imgStream = spriteData.img
       .pipe(buffer())
-      .pipe(gp.if(isProd, gp.imagemin(
-        [pngquant({
-        quality: [0.8, 0.9],
-        speed: 2,
-        strip: true
-      })])))
       .pipe(gulp.dest(`${path.spritePng.build}/img/`));
 
     let cssStream = spriteData.css

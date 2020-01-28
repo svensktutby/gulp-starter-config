@@ -28,7 +28,10 @@
       "windows": false,
       "coast": false
     },
-    "filteredFavicons": [
+    "faviconsDev": [
+      "favicon.ico"
+    ],
+    "faviconsProd": [
       "favicon.ico",
       "favicon-16x16.png",
       "favicon-32x32.png",

@@ -72,19 +72,21 @@ module.exports = {
   },
   images: {
     src: [
-      './src/blocks/**/*.{jpg,jpeg,png,gif,svg}',
       './src/img/**/*.{jpg,jpeg,png,gif,svg}',
+      './src/blocks/**/*.{jpg,jpeg,png,gif,svg}',
+      './src/blocks/favicon/icons/*.{png,svg,ico,json,manifest}',
       '!./src/blocks/sprite-svg/svg/*.svg',
       '!./src/blocks/sprite-svg/img/*.svg',
       '!./src/blocks/sprite-png/png/*.png',
-      '!./src/img/favicon/**/*'
+      '!./src/blocks/favicon/*'
     ],
     build: './build/img/',
     watch: [
       './src/img/**/*.{jpg,jpeg,png,gif,svg}',
+      './src/blocks/**/*.{jpg,jpeg,png,gif,svg}',
       '!./src/blocks/sprite-svg/svg/*.svg',
       '!./src/blocks/sprite-png/png/*.png',
-      '!./src/img/favicon/**/*'
+      '!./src/blocks/favicon/**/*'
     ],
   },
   spriteSvg: {
@@ -111,9 +113,9 @@ module.exports = {
     watch: './src/fonts/**/*.{woff,woff2,eot,ttf,svg}'
   },
   favicon: {
-    src: './src/img/favicon/*.{jpg,jpeg,png,gif,svg}',
-    data: './src/img/favicon/favicon-data.json',
-    build: './build/img/favicon/',
-    buildManifest: './build/img/favicon/manifest.json'
+    src: './src/blocks/favicon/*.{jpg,jpeg,png,gif,svg}',
+    data: './src/blocks/favicon/favicon-data.json',
+    build: './src/blocks/favicon/icons/',
+    buildManifest: './src/blocks/favicon/icons/manifest.json'
   }
 };

@@ -32,5 +32,5 @@ module.exports = function ({ gulp, gp, path }) {
         }))
         // if a file has errors/warnings ("linty") uncache it
         .pipe(gp.if(isLinty, uncache('stylelint-cache')))
-        .pipe(gp.debug({ title: 'style:lint:', showFiles: true }));
+        .pipe(gp.debug({ title: 'style:lint:', showFiles: false }));
 };

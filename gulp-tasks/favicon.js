@@ -2,20 +2,17 @@
 
 module.exports = function ({ gulp, gp, path }) {
 
-  const pngquant = require('imagemin-pngquant');
   const faviconConfig = require('.' + path.favicon.data);
+  const del = require('del');
   const isProd = process.env.NODE_ENV == 'production';
+  del(`${path.favicon.build}/*`);
 
   return gulp
         .src(path.favicon.src)
-        .pipe(gp.if(isProd, gp.favicons(faviconConfig.options)))
-        .pipe(gp.filter(faviconConfig.options.filteredFavicons))
-        .pipe(gp.if(isProd, gp.imagemin(
-          [pngquant({
-          quality: [0.8, 0.9],
-          speed: 2,
-          strip: true
-        })])))
+        .pipe(gp.favicons(faviconConfig.options))
+        .pipe(gp.if(isProd,
+          gp.filter(faviconConfig.options.faviconsProd),
+          gp.filter(faviconConfig.options.faviconsDev)))
         .pipe(gulp.dest(path.favicon.build))
         .pipe(gp.debug({ title: 'favicon', showFiles: false }));
 };
