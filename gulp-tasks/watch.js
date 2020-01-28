@@ -13,7 +13,7 @@ module.exports = function ({ gulp, path }) {
     watch(path.fonts.watch, series('fonts'));
     watch(path.images.watch, series('images'));
     watch(path.spriteSvg.watch, series('spriteSvg', 'pug'));
-    watch(path.spritePng.watch, series('spritePng'));
+    watch(path.spritePng.watch, series('spritePng', parallel('images', 'styles')));
     watch('./gulp-tasks/path.js', series('pathRebuild', 'build'));
 
     resolve();

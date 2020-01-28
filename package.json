@@ -93,6 +93,7 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "svg4everybody": "^2.1.9"
   }
 }

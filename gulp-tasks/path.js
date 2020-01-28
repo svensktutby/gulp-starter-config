@@ -51,7 +51,8 @@ module.exports = {
       './src/**/*.scss',
       '!./src/style/base/**/*.scss',
       '!./src/style/helpers/**/*.scss',
-      '!./src/style/vendor/**/*.scss'
+      '!./src/style/vendor/**/*.scss',
+      '!./src/blocks/sprite-png/*.scss'
     ]
   },
   scripts: {
@@ -75,14 +76,14 @@ module.exports = {
       './src/img/**/*.{jpg,jpeg,png,gif,svg}',
       '!./src/blocks/sprite-svg/svg/*.svg',
       '!./src/blocks/sprite-svg/img/*.svg',
-      '!./src/img/sprite-png/**/*',
+      '!./src/blocks/sprite-png/png/*.png',
       '!./src/img/favicon/**/*'
     ],
     build: './build/img/',
     watch: [
       './src/img/**/*.{jpg,jpeg,png,gif,svg}',
       '!./src/blocks/sprite-svg/svg/*.svg',
-      '!./src/img/sprite-png/**/*',
+      '!./src/blocks/sprite-png/png/*.png',
       '!./src/img/favicon/**/*'
     ],
   },
@@ -97,11 +98,11 @@ module.exports = {
   },
   spritePng: {
     src: [
-      './src/img/sprite-png/*.png'
+      './src/blocks/sprite-png/png/*.png'
     ],
-    build: './build/img/',
+    build: './src/blocks/sprite-png/',
     watch: [
-      './src/img/sprite-png/*.png'
+      './src/blocks/sprite-png/png/*.png'
     ]
   },
   fonts: {
