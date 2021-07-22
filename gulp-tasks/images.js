@@ -5,7 +5,7 @@ module.exports = function ({ gulp, gp, path, browserSync }) {
   const pngquant = require('imagemin-pngquant');
   const mozjpeg = require('imagemin-mozjpeg');
   const onError = require(path.message.error);
-  const isProd = process.env.NODE_ENV == 'production';
+  const isProd = process.env.NODE_ENV === 'production';
 
   return gulp
         .src(path.images.src)
@@ -31,9 +31,9 @@ module.exports = function ({ gulp, gp, path, browserSync }) {
               plugins: [
                 { removeViewBox: false },
                 { cleanupIDs: true },
-                { removeAttrs: {attrs:['version']} },
                 { removeUselessStrokeAndFill: false },
-                { convertPathData: false }
+                { convertPathData: false },
+                { removeUselessDefs: false }
               ]
             })
           ], {

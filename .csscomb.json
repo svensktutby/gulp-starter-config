@@ -30,16 +30,19 @@
   "vendor-prefix-align": true,
   "sort-order": [
     [
+      "composes"
+    ],
+    [
       "$variable"
+    ],
+    [
+      "$extend"
     ],
     [
       "$include"
     ],
     [
       "$include-content"
-    ],
-    [
-      "$extend"
     ],
     [
       "content",

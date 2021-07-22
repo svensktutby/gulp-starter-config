@@ -3,7 +3,7 @@
 
 /* PX to REM function
 ******************************/
-@function rem($px) {
+@function px-rem($px) {
   @return ($px / 16px) * 1rem;
 }
 
@@ -11,7 +11,7 @@
 ******************************/
 @mixin font-size($fs: $font-size, $lh: false) {
   //fs: $fs; /* Fallback in px */
-  font-size: rem($fs);
+  font-size: px-rem($fs);
 
   @if $lh != false {
     line-height: ($lh / $fs);
@@ -216,35 +216,35 @@
 ******************************/
 @mixin xl {
 
-  @media screen and (min-width: #{$screen-xl}) {
+  @media screen and (max-width: #{$screen-xl}) {
     @content;
   }
 } // Extra large devices
 
 @mixin lg {
 
-  @media screen and (min-width: #{$screen-lg}) {
+  @media screen and (max-width: #{$screen-lg}) {
     @content;
   }
 } // Large devices
 
 @mixin md {
 
-  @media screen and (min-width: #{$screen-md}) {
+  @media screen and (max-width: #{$screen-md}) {
     @content;
   }
 } // Medium devices
 
 @mixin sm {
 
-  @media screen and (min-width: #{$screen-sm}) {
+  @media screen and (max-width: #{$screen-sm}) {
     @content;
   }
 } // Small devices
 
 @mixin xs {
 
-  @media screen and (min-width: #{$screen-xs}) {
+  @media screen and (max-width: #{$screen-xs}) {
     @content;
   }
 } // Tiny devices
@@ -256,38 +256,46 @@
   }
 } // retina 1.5x devices
 
-/* Container with media queries
+/* Container for media queries
 ******************************/
 @mixin container($screen: xs) {
-  margin: 0 auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 
-  @if $screen == xl {
-    width: $screen-xl;
-    padding-right: $padding-xl;
-    padding-left: $padding-xl;
-  }
-
-  @else if $screen == lg {
-    width: $screen-lg;
-    padding-right: $padding-lg;
-    padding-left: $padding-lg;
-  }
-
-  @else if $screen == md {
-    width: $screen-md;
-    padding-right: $padding-md;
-    padding-left: $padding-md;
+  @if $screen == xs {
+    max-width: $container-xs;
+    padding-right: $container-indent-xs;
+    padding-left: $container-indent-xs;
   }
 
   @else if $screen == sm {
-    width: $screen-sm;
-    padding-right: $padding-sm;
-    padding-left: $padding-sm;
+    max-width: $container-sm;
+    padding-right: $container-indent-sm;
+    padding-left: $container-indent-sm;
   }
 
-  @else if $screen == xs {
-    width: $screen-xs;
-    padding-right: $padding-xs;
-    padding-left: $padding-xs;
+  @else if $screen == md {
+    max-width: $container-md;
+    padding-right: $container-indent-md;
+    padding-left: $container-indent-md;
+  }
+
+  @else if $screen == lg {
+    max-width: $container-lg;
+    padding-right: $container-indent-lg;
+    padding-left: $container-indent-lg;
+  }
+
+  @else if $screen == xl {
+    max-width: $container-xl;
+    padding-right: $container-indent-xl;
+    padding-left: $container-indent-xl;
+  }
+
+  @else if $screen == xxl {
+    max-width: $container-xxl;
+    padding-right: $container-indent-xxl;
+    padding-left: $container-indent-xxl;
   }
 }

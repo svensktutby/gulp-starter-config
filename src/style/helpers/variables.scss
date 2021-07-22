@@ -17,14 +17,22 @@ $color-success:               hsl(120, 39%, 54%);
 $color-danger:                hsl(2, 64%, 58%);
 $color-warning:               hsl(35, 84%, 62%);
 
+$cloudy-knoxville-gradient:   linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+
 /* Semantic colors
 ******************************/
 $text-color:                  $gray-darkest;
 $text-color-muted:            $gray;
+
 $body-bg:                     $white;
+$body-gradient:               $cloudy-knoxville-gradient;
+
+$section-color-main:          $white;
+$section-color-additional:    $gray-lightest;
 
 $link-color:                  $color-main;
 $link-color--hover:           darken($color-main, 15%);
+$link-color-active:           $gray-lighten;
 
 $border-color:                $gray-lighten;
 
@@ -34,24 +42,30 @@ $font-family:                 "PT Sans", "Arial", sans-serif;
 $font-size:                   16px;
 $font-size-sm:                0.75em; // 12px from 16px
 
+$font-size-title-primary:     4.25rem;
+$font-size-title-secondary:   2.5rem;
+$font-size-title-tertiary:    1.75rem;
+$font-size-title-quaternary:  1.125rem;
+
 $line-height:                 1.42;
 
 $typo-margin-vertical:        1em;
 
 /* Sizes
 ******************************/
-$screen-xs:                   0;
-$screen-sm:                   480px;
+$screen-xs:                   375px;
+$screen-sm:                   576px;
 $screen-md:                   768px;
 $screen-lg:                   992px;
 $screen-xl:                   1200px;
 $screen-xxl:                  1800px;
 
+$container-xs:                100%;
 $container-sm:                100%;
 $container-md:                100%;
-$container-lg:                $screen-lg - 30;
-$container-xl:                $screen-xl - 30;
-$container-xxl:               $screen-xxl - 30;
+$container-lg:                $screen-lg - 100;
+$container-xl:                $screen-xl - 100;
+$container-xxl:               $screen-xxl - 200;
 
 $retina-dpi:                  144dpi;
 $retina-dppx:                 1.5dppx;
@@ -60,6 +74,14 @@ $retina-dppx:                 1.5dppx;
 ******************************/
 $grid-columns:                12;
 $grid-gutter-width:           30px;
+$grid-gutter-width-sm:        10px;
+
+$container-indent-xs:         $grid-gutter-width-sm / 2;
+$container-indent-sm:         $grid-gutter-width-sm / 2;
+$container-indent-md:         $grid-gutter-width / 2;
+$container-indent-lg:         $grid-gutter-width / 2;
+$container-indent-xl:         $grid-gutter-width / 2;
+$container-indent-xxl:        $grid-gutter-width / 2;
 
 /* Other
 ******************************/

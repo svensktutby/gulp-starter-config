@@ -17,6 +17,7 @@ src/blocks/favicon/icons/
 # NodeJS
 node_modules/
 package-lock.json
+yarn.lock
 
 # Other
 *.ai
